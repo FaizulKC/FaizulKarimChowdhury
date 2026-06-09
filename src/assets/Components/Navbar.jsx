@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Navbar({ active, NAV_LINKS }) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,6 +14,7 @@ export default function Navbar({ active, NAV_LINKS }) {
 
   const scrollTo = (id) => {
     const section = id.toLowerCase();
+    setMenuOpen(false); // Close menu after clicking
     if (section === "home") {
       navigate("/");
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -28,7 +30,19 @@ export default function Navbar({ active, NAV_LINKS }) {
         <span className="logo-bracket">[</span>FK
         <span className="logo-bracket">]</span>
       </div>
-      <ul className="nav-links">
+      
+      {/* hamburger menu */}
+      <button 
+        className={`hamburger ${menuOpen ? "hamburger--active" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
+      >
+        <span className="hamburger-line"></span>
+        <span className="hamburger-line"></span>
+        <span className="hamburger-line"></span>
+      </button>
+
+      <ul className={`nav-links ${menuOpen ? "nav-links--mobile-open" : ""}`}>
         {NAV_LINKS.map((n) => (
           <li key={n}>
             <button

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import resumePDF from "../../assets/resume.pdf";
 
 export default function Hero() {
   const [show, setShow] = useState(false);
@@ -21,7 +22,7 @@ export default function Hero() {
         <p className="hero-tagline">
           Frontend-focused. Full-stack curious.
           <br />
-           Always building.
+          Always building.
         </p>
         <div className="hero-cta">
           <button
@@ -32,19 +33,17 @@ export default function Hero() {
                 .scrollIntoView({ behavior: "smooth" })
             }
           >
-            View Work <span className="btn-arrow">↓</span>
+            <span>View Work</span> <span className="btn-arrow">↓</span>
           </button>
-          <a
+
+          <button
             className="btn btn--ghost"
-            href="mailto:faizulkarimchowdhury@gmail.com"
+            onClick={() => window.open(resumePDF, "_blank")}
           >
-            Get in touch
-          </a>
+            <span>View Resume</span>
+          </button>
         </div>
       </div>
-      {/* <div className={`hero-number ${show ? "hero-number--visible" : ""}`}>
-        <span>2021</span>
-      </div> */}
       <div className="hero-scroll-hint">
         <span>scroll</span>
         <span className="scroll-bar" />
