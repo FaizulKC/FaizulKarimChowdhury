@@ -769,6 +769,10 @@ ul {
   color: #0b0b0b;
 }
 
+.project-arrow {
+  background: transparent;
+}
+
 .project-line {
   position: absolute;
   bottom: 0;

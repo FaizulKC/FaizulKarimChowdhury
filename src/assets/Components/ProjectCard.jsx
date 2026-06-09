@@ -31,7 +31,7 @@ export default function ProjectCard({ project, index, parentVisible }) {
           rel="noreferrer"
           className="project-link"
         >
-          GitHub <span>↗</span>
+          GitHub <span className="project-arrow">↗</span>
         </a>
         <a
           href={project.live}
@@ -39,7 +39,7 @@ export default function ProjectCard({ project, index, parentVisible }) {
           rel="noreferrer"
           className="project-link project-link--primary"
         >
-          Live Demo <span>↗</span>
+          Live Demo <span className="project-arrow">↗</span>
         </a>
       </div>
       <div className="project-line" />
